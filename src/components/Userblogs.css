@@ -1,0 +1,11 @@
+.review-ends{
+    width: 100%;
+    height: 100%;
+    margin-top:15px;
+    background: #393636;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}

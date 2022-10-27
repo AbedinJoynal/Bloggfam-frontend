@@ -1,0 +1,81 @@
+.blogs-wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: ghostwhite;
+}
+.blogs-section {
+    box-sizing: border-box;
+    position: absolute;
+    background: url(https://img.freepik.com/free-photo/i-can-handle-multi-tasks-cropped-shot-successful-girl-typing-keyboard-making-notes-while-looking-computer-screen-studying-new-business-graphic-there-is-no-time-rest_176420-8700.jpg?w=900&t=st=1666701659~exp=1666702259~hmac=7673c9e142d84644236f2255fa7dcc8a81ed3e3c067018dad0a5616a5e66b921)
+        no-repeat center fixed;
+    background-size: cover;
+    width: 100%;
+    height: 30rem;
+    opacity: 0.8;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.blogs-intro {
+    position: absolute;
+    width: 609px;
+    height: 216px;
+    left: 10px;
+    top: 150px;
+    font-family: roboto, arial, helvetica, sans-serif;
+    font-style: normal;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 72px;
+    color: #151515 !important;
+    border-bottom: 2px solid black;
+}
+.blogs-container {
+    margin-top: 42rem;
+}
+.blogs-desc-start {
+    position: absolute;
+    width: 366px;
+    height: 87px;
+    left: 37.2rem;
+    top: 500px;
+    font-family: roboto, arial, helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 43px;
+    text-align: center;
+    color: #151515;
+}
+.blogs-desc {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    width: 360px;
+    height: 70px;
+    left: 37.2rem;
+    top: 550px;
+    font-family: roboto, arial, helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 43px;
+    padding-top: 15px;
+    background-color: #151515;
+    text-align: center;
+    border-radius: 15px 1px;
+    color: white;
+}
+
+@media screen and (max-width: 1500px) {
+    .blogs-desc-start {
+        position: relative;
+        text-align: center;
+        left: 18rem;
+    }
+    .blogs-desc {
+        top: 29rem;
+        position: relative;
+        text-align: center;
+        left: 18rem;
+    }
+}

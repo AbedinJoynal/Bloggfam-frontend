@@ -1,0 +1,180 @@
+.footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: ghostwhite;
+    margin-bottom: 2rem;
+}
+.review-title {
+    position: absolute;
+    width: 300px;
+    height: 85px;
+    left: 40rem;
+    font-weight: 400;
+    font-family: roboto, arial, helvetica, sans-serif;
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+    padding: 5px;
+    color: white;
+    margin-top:-47rem;
+    /* margin-top: -35rem; */
+    background-color: #393636;
+    text-align: center;
+    border-radius: 0px 15px 0px 15px;
+}
+.review-details-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+}
+.review-details-left {
+    width: 35%;
+    background-color: #393636;
+    color: white;
+    margin-top: 15rem;
+    margin-left: 8rem;
+    border-radius: 0px 15px 0px 15px;
+    font-size: 20px;
+    font-family: roboto, arial, helvetica, sans-serif;
+    padding: 4px 60px;
+}
+.review-details-right {
+    width: 35%;
+    margin-top: 15rem;
+    font-size: 20px;
+    margin-right: 2rem;
+    border-radius: 0px 15px 0px 15px;
+    font-size: 20px;
+    padding: 4px 60px;
+    font-family: roboto, arial, helvetica, sans-serif;
+    background-color: #dfdfdf;
+    color: rgb(0, 0, 0);
+}
+span {
+    font-weight: 600;
+    font-size: 2rem;
+}
+.user-review {
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+.review-footer {
+    background: url(https://img.freepik.com/premium-photo/close-up-hand-writing-paper-notebook-with-blue-pen-note-memo-list-action-plan-office-desk_571507-77.jpg?w=1060)
+        no-repeat center fixed;
+    background-size: cover;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5rem;
+    height: 20rem;
+    opacity: 0.9;
+}
+.users-no-left {
+    font-family: roboto, arial, helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 54px;
+    color: black;
+    padding-top: 1.5rem;
+    padding-left: 5rem;
+    border-bottom: 2px solid black;
+}
+.users-no-right {
+    font-family: roboto, arial, helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 54px;
+    color: black;
+    padding-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-right: 5rem;
+    border-bottom: 2px solid black;
+}
+.review-end {
+    width: 100%;
+    height: 150px;
+    background: #393636;
+    display: flex;
+    flex-direction: row;
+   justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.review-end-left {
+    font-family: roboto, arial, helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: white;
+    padding-top: 1rem;
+    padding-left: 2rem;
+    cursor: pointer;
+}
+.review-end-middle {
+    font-family: roboto, arial, helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: white;
+    padding-top: 1rem;
+    padding-right: 15rem;
+    padding-bottom: 1rem;
+    cursor: pointer;
+}
+.review-end-left:hover {
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+.review-end-right {
+    font-family: roboto, arial, helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: white;
+    padding-top: 1rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+    cursor: pointer;
+}
+.end-fill{
+    width: 35rem;
+   font-size: 1.8rem;
+   font-weight: bold;
+    margin-top: 2rem;
+    text-align: center;
+    color:#393636;
+    border-bottom: 3px solid #393636;
+    padding-top: 1.5rem;
+    font-family: roboto, arial, helvetica, sans-serif;
+}
+
+li {
+    list-style-type: none;
+    padding: 0.2rem;
+    
+
+}
+@media all and (max-width: 1500px) {
+    .review-title{
+     
+   display: flex;
+   flex-direction: column;
+   flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+     margin-right: auto;
+    margin-left: auto;
+    }
+    .review-details-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+         justify-content: center;
+         align-items: center;
+          margin-right: auto;
+         margin-left: auto;
+        
+    }
+
+}
