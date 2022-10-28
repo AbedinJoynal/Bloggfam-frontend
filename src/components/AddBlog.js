@@ -3,6 +3,9 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStyles } from './utils';
+import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
 const labelStyles = {
     mb: 1,
     mt: 2,
@@ -26,7 +29,7 @@ const AddBlog = () => {
     };
     const sendRequest = async () => {
         const res = await axios
-            .post('http://localhost:5000/api/blog/add', {
+            .post('https://bloggfam.herokuapp.com/api/blog/add', {
                 title: inputs.title,
                 description: inputs.description,
                 image: inputs.imageURL,
@@ -123,20 +126,22 @@ const AddBlog = () => {
                 <p className="review-end-left">
                     Blogfam.All Rights Reserved 2022
                 </p>
-                <div className="review-end-middle">
-                    <ul>
-                        <li>Information</li>
-                        <li>Our Site</li>
-                        <li>Our Services</li>
-                        <li>Contact Us</li>
-                    </ul>
-                </div>
+               
                 <div className="review-end-right">
                     <ul>
-                        <li>Social Links</li>
-                        <li>Facebook</li>
-                        <li>Twitter</li>
-                        <li>Instagram</li>
+                        <li>
+                            <FacebookOutlinedIcon
+                            
+                            />
+                        </li>
+                        <li>
+                            <TwitterIcon
+                            
+                            />
+                        </li>
+                        <li>
+                            <InstagramIcon />
+                        </li>
                     </ul>
                 </div>
             </div>

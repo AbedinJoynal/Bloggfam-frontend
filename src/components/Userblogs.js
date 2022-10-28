@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Blog from './Blog';
+import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import './Userblogs.css';
+
 const Userblogs = () => {
     const [user, setUser] = useState();
     const id = localStorage.getItem('userId');
     const sendRequest = async () => {
         const res = await axios
-            .get(`http://localhost:5000/api/blog/user/${id}`)
+            .get(`https://bloggfam.herokuapp.com/api/blog/user/${id}`)
             .catch((err) => console.log(err));
         const data = await res.data;
         return data;
     };
 
     useEffect(() => {
-        sendRequest().then((data) =>setUser(data.user));
+        sendRequest().then((data) => setUser(data.user));
     }, []);
     console.log(user);
     return (
-        <div
-        style={{backgroundColor:'ghostwhite'
-    ,marginTop:'-20px'
-    }}
-        >
+        <div style={{ backgroundColor: 'ghostwhite', marginTop: '-20px' }}>
             {' '}
             {user &&
                 user.blogs &&
@@ -37,22 +37,22 @@ const Userblogs = () => {
                         userName={user.name}
                     />
                 ))}
-                <div className="review-ends">
-                <p className='review-end-left'>Blogfam.All Rights Reserved 2022</p>
-                <div className='review-end-middle'>
+            <div className="review-ends">
+                <p className="review-end-left">
+                    Blogfam.All Rights Reserved 2022
+                </p>
+
+                <div className="review-end-right">
                     <ul>
-                        <li>Information</li>
-                        <li>Our Site</li>
-                        <li>Our Services</li>
-                        <li>Contact Us</li>
-                    </ul>
-                </div>
-                <div className='review-end-right'>
-                    <ul>
-                        <li>Social Links</li>
-                        <li>Facebook</li>
-                        <li>Twitter</li>
-                        <li>Instagram</li>
+                        <li>
+                            <FacebookOutlinedIcon fontSize="large" />
+                        </li>
+                        <li>
+                            <TwitterIcon fontSize="large" />
+                        </li>
+                        <li>
+                            <InstagramIcon fontSize="large" />
+                        </li>
                     </ul>
                 </div>
             </div>

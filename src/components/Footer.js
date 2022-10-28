@@ -1,5 +1,8 @@
 import React from 'react';
 import './Footer.css';
+import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
 const Footer = () => {
     return (
         <div className="footer-wrapper">
@@ -46,10 +49,16 @@ const Footer = () => {
                 </div>
                 <div className='review-end-right'>
                     <ul>
-                        <li>Social Links</li>
-                        <li>Facebook</li>
-                        <li>Twitter</li>
-                        <li>Instagram</li>
+                        
+                        <li><FacebookOutlinedIcon
+                        fontSize='large'
+                        /></li>
+                        <li><TwitterIcon
+                        fontSize='large'
+                        /></li>
+                        <li><InstagramIcon
+                        fontSize='large'
+                        /></li>
                     </ul>
                 </div>
             </div>

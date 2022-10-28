@@ -23,7 +23,7 @@ const Blog = ({ title, userName, description, imageURL, isUser, id }) => {
     };
     const deleteRequest = async () => {
         const res = await axios
-            .delete(`http://localhost:5000/api/blog/${id}`)
+            .delete(`https://bloggfam.herokuapp.com/api/blog/${id}`)
             .catch((err) => console.log(err));
         const data = await res.data;
         return data;
@@ -82,7 +82,7 @@ const Blog = ({ title, userName, description, imageURL, isUser, id }) => {
                     </Box>
                 )}
                 <CardHeader
-                 avatar={
+                    avatar={
                         <Avatar
                             className={classes.font}
                             sx={{
@@ -98,7 +98,6 @@ const Blog = ({ title, userName, description, imageURL, isUser, id }) => {
                     title={title}
                 />
                 <CardMedia
-                
                     component="img"
                     height="200"
                     image={imageURL}

@@ -3,6 +3,9 @@ import { Box } from '@mui/system';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import './BlogDetail.css';
 
 const labelStyles = {
@@ -26,7 +29,7 @@ const BlogDetail = () => {
     };
     const fetchDetails = async () => {
         const res = await axios
-            .get(`http://localhost:5000/api/blog/${id}`)
+            .get(`https://bloggfam.herokuapp.com/api/blog/${id}`)
             .catch((err) => console.log(err));
         const data = await res.data;
         return data;
@@ -42,7 +45,7 @@ const BlogDetail = () => {
     }, [id]);
     const sendRequest = async () => {
         const res = await axios
-            .put(`http://localhost:5000/api/blog/update/${id}`, {
+            .put(`https://bloggfam.herokuapp.com/api/blog/update/${id}`, {
                 title: inputs.title,
                 description: inputs.description,
             })
@@ -126,20 +129,18 @@ const BlogDetail = () => {
                 <p className="review-end-left">
                     Blogfam.All Rights Reserved 2022
                 </p>
-                <div className="review-end-middle">
-                    <ul>
-                        <li>Information</li>
-                        <li>Our Site</li>
-                        <li>Our Services</li>
-                        <li>Contact Us</li>
-                    </ul>
-                </div>
+
                 <div className="review-end-right">
                     <ul>
-                        <li>Social Links</li>
-                        <li>Facebook</li>
-                        <li>Twitter</li>
-                        <li>Instagram</li>
+                        <li>
+                            <FacebookOutlinedIcon />
+                        </li>
+                        <li>
+                            <TwitterIcon />
+                        </li>
+                        <li>
+                            <InstagramIcon />
+                        </li>
                     </ul>
                 </div>
             </div>
