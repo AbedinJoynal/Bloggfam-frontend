@@ -17,35 +17,34 @@ const Blogs = () => {
     }, []);
     console.log(blogs);
     return (
-        <div className='blogs-wrapper'>
-            <div className='blogs-section'>
-                <p className='blogs-intro'>
-                Write Your Way To Success
-                </p>
-                <p className='blogs-desc-start'>
-                    OUR BLOG 
-                </p>
-                <p className='blogs-desc'>
-                Let Us Know 
-                </p>
+        <div className="blogs-wrapper">
+            <div className="blogs-top">
+                <div className="blogs-section">
+                </div>
+                    <p className="blogs-intro">Write Your Way To Success</p>
+                <div className="blogs-bottom">
+                    <p className="blogs-desc-start">OUR BLOG</p>
+                    <p className="blogs-desc">Let Us Know</p>
+                </div>
             </div>
 
-             <div className="blogs-container">
-            {blogs &&
-                blogs.map((blog, index) => (
-                    <Blog
-                        id={blog._id}
-                        isUser={localStorage.getItem('userId') === blog.user}
-                        title={blog.title}
-                        description={blog.description}
-                        imageURL={blog.image}
-                        userName={blog.name}
-                    />
-                ))}
+            <div className="blogs-container">
+                {blogs &&
+                    blogs.map((blog, index) => (
+                        <Blog
+                            id={blog._id}
+                            isUser={
+                                localStorage.getItem('userId') === blog.user
+                            }
+                            title={blog.title}
+                            description={blog.description}
+                            imageURL={blog.image}
+                            userName={blog.name}
+                        />
+                    ))}
+            </div>
+            <Footer />
         </div>
-        <Footer/>
-        </div>
-       
     );
 };
 

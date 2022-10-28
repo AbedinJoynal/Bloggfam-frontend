@@ -5,7 +5,8 @@
 }
 .blogs-section {
     box-sizing: border-box;
-    position: absolute;
+    display: flex;
+    flex-direction: column;
     background: url(https://img.freepik.com/free-photo/i-can-handle-multi-tasks-cropped-shot-successful-girl-typing-keyboard-making-notes-while-looking-computer-screen-studying-new-business-graphic-there-is-no-time-rest_176420-8700.jpg?w=900&t=st=1666701659~exp=1666702259~hmac=7673c9e142d84644236f2255fa7dcc8a81ed3e3c067018dad0a5616a5e66b921)
         no-repeat center fixed;
     background-size: cover;
@@ -16,66 +17,64 @@
 }
 .blogs-intro {
     position: absolute;
-    width: 609px;
-    height: 216px;
-    left: 10px;
-    top: 150px;
+    width: 40%;
+    height: 150px;
+    text-shadow: 1px 1px 0.5px black;
+    left:1.5rem;
+    top: 250px;
     font-family: roboto, arial, helvetica, sans-serif;
     font-style: normal;
     font-size: 60px;
     font-weight: 400;
     line-height: 72px;
-    color: #151515 !important;
-    border-bottom: 2px solid black;
+    color: #393636 !important;
+    border-bottom: 2.2px solid black;
 }
 .blogs-container {
-    margin-top: 42rem;
+    margin-top: 1.2rem;
+}
+
+.blogs-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.blogs-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-family: roboto, arial, helvetica, sans-serif;
+    text-align: center;
+    color: #393636;
 }
 .blogs-desc-start {
-    position: absolute;
     width: 366px;
-    height: 87px;
-    left: 37.2rem;
-    top: 500px;
-    font-family: roboto, arial, helvetica, sans-serif;
+    height: 80px;
+    text-shadow: 1px 1px 0.5px black;
+    padding-top: 30px;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 43px;
     text-align: center;
-    color: #151515;
+    color: #393636;
+  
 }
 .blogs-desc {
-    display: flex;
-    flex-direction: column;
-
-    position: absolute;
     width: 360px;
     height: 70px;
-    left: 37.2rem;
-    top: 550px;
-    font-family: roboto, arial, helvetica, sans-serif;
+    text-shadow: 1px 2px 4px black;
     font-style: normal;
     font-weight: 400;
     font-size: 36px;
-    line-height: 43px;
     padding-top: 15px;
-    background-color: #151515;
+    background-color: #393636;
     text-align: center;
     border-radius: 15px 1px;
     color: white;
-}
-
-@media screen and (max-width: 1500px) {
-    .blogs-desc-start {
-        position: relative;
-        text-align: center;
-        left: 18rem;
-    }
-    .blogs-desc {
-        top: 29rem;
-        position: relative;
-        text-align: center;
-        left: 18rem;
-    }
 }

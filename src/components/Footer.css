@@ -7,10 +7,10 @@
     margin-bottom: 2rem;
 }
 .review-title {
-    position: absolute;
+    margin-top: 3rem;
     width: 300px;
     height: 85px;
-    left: 40rem;
+    margin-bottom: -9rem;
     font-weight: 400;
     font-family: roboto, arial, helvetica, sans-serif;
     font-size: 36px;
@@ -18,38 +18,45 @@
     text-align: center;
     padding: 5px;
     color: white;
-    margin-top:-47rem;
-    /* margin-top: -35rem; */
+    flex-basis: content;
+
     background-color: #393636;
-    text-align: center;
+    text-shadow: 1px 2px 4px black;
     border-radius: 0px 15px 0px 15px;
 }
 .review-details-container {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     gap: 30px;
     width: 100%;
 }
 .review-details-left {
-    width: 35%;
+    width: 40%;
+    text-align: center;
+    text-shadow: 1px 2px 4px black;
     background-color: #393636;
     color: white;
+    flex-basis: content;
     margin-top: 15rem;
-    margin-left: 8rem;
     border-radius: 0px 15px 0px 15px;
     font-size: 20px;
     font-family: roboto, arial, helvetica, sans-serif;
-    padding: 4px 60px;
+    padding: 20px 60px;
 }
 .review-details-right {
-    width: 35%;
+    width: 40%;
     margin-top: 15rem;
     font-size: 20px;
-    margin-right: 2rem;
+    text-align: center;
     border-radius: 0px 15px 0px 15px;
+    text-shadow: 1px 1px 0.5px black;
     font-size: 20px;
-    padding: 4px 60px;
+    padding: 20px 60px;
     font-family: roboto, arial, helvetica, sans-serif;
+    flex-basis: content;
+   
     background-color: #dfdfdf;
     color: rgb(0, 0, 0);
 }
@@ -78,6 +85,7 @@ span {
     font-family: roboto, arial, helvetica, sans-serif;
     font-style: normal;
     font-weight: 400;
+    text-shadow: 1px 1px 0.5px black;
     font-size: 54px;
     color: black;
     padding-top: 1.5rem;
@@ -89,6 +97,7 @@ span {
     font-style: normal;
     font-weight: 400;
     font-size: 54px;
+    text-shadow: 1px 1px 0.5px black;
     color: black;
     padding-top: 1.5rem;
     margin-bottom: 1.5rem;
@@ -101,7 +110,7 @@ span {
     background: #393636;
     display: flex;
     flex-direction: row;
-   justify-content: space-between;
+    justify-content: space-between;
     align-items: center;
     color: white;
 }
@@ -111,6 +120,7 @@ span {
     font-size: 24px;
     color: white;
     padding-top: 1rem;
+    
     padding-left: 2rem;
     cursor: pointer;
 }
@@ -120,6 +130,7 @@ span {
     font-size: 20px;
     color: white;
     padding-top: 1rem;
+    text-shadow: 1px 1px 0.5px black;
     padding-right: 15rem;
     padding-bottom: 1rem;
     cursor: pointer;
@@ -137,13 +148,14 @@ span {
     padding-bottom: 1rem;
     cursor: pointer;
 }
-.end-fill{
+.end-fill {
     width: 35rem;
-   font-size: 1.8rem;
-   font-weight: bold;
+    font-size: 1.8rem;
+    font-weight: bold;
     margin-top: 2rem;
+    text-shadow: 1px 1px 0.5px black;
     text-align: center;
-    color:#393636;
+    color: #393636;
     border-bottom: 3px solid #393636;
     padding-top: 1.5rem;
     font-family: roboto, arial, helvetica, sans-serif;
@@ -152,29 +164,24 @@ span {
 li {
     list-style-type: none;
     padding: 0.2rem;
-    
-
 }
 @media all and (max-width: 1500px) {
-    .review-title{
-     
-   display: flex;
-   flex-direction: column;
-   flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-     margin-right: auto;
-    margin-left: auto;
+    .review-title {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        margin-right: auto;
+        margin-left: auto;
     }
-    .review-details-container{
+    .review-details-container {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-         justify-content: center;
-         align-items: center;
-          margin-right: auto;
-         margin-left: auto;
-        
+        justify-content: center;
+        align-items: center;
+        margin-right: auto;
+        margin-left: auto;
     }
-
 }

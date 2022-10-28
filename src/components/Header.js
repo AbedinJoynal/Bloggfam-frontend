@@ -23,6 +23,12 @@ const Header = () => {
             position="sticky"
             sx={{
                 background: '#393636',
+                width: '100%',
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                flexShrink: 1,
+                flexBasis: 'auto',
             }}
         >
             <Toolbar>
@@ -40,7 +46,18 @@ const Header = () => {
                     BlogFam
                 </Typography>
                 {isLoggedIn && (
-                    <Box marginLeft={'auto'} marginRight={'10px'}>
+                    <Box
+                        marginLeft={'auto'}
+                        paddingRight={'auto'}
+                        sx={{
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                justifyContent: 'center',
+                flexShrink: 1,
+                flexBasis: 'auto',
+                            gap: '20px',
+                        }}
+                    >
                         <Tabs
                             textColor="white"
                             value={value}
@@ -50,10 +67,15 @@ const Header = () => {
                                 className={classes.font}
                                 LinkComponent={Link}
                                 sx={{
+                                    display: 'flex',
+                                    flexWrap: 'wrap',
                                     borderRadius: '5px',
-                                    marginRight: '50px',
-                                    boxShadow: '3px 0px 4px black',
+
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+
                                     backgroundColor: '#393636',
+
                                     '&:hover': {
                                         background: '#FFFFFF',
                                         color: '#080B1A',
@@ -66,9 +88,11 @@ const Header = () => {
                                 className={classes.font}
                                 LinkComponent={Link}
                                 sx={{
+                                    display: 'flex',
+                                    flexWrap: 'wrap',
+
                                     borderRadius: '5px',
-                                    marginRight: '50px',
-                                    boxShadow: '3px 0px 4px black',
+
                                     backgroundColor: '#393636',
                                     '&:hover': {
                                         background: '#FFFFFF',
@@ -83,8 +107,9 @@ const Header = () => {
                                 LinkComponent={Link}
                                 sx={{
                                     borderRadius: '5px',
-                                    marginRight: '50px',
-                                    boxShadow: '3px 0px 4px black',
+                                    display: 'flex',
+                                    flexWrap: 'wrap',
+
                                     backgroundColor: '#393636',
                                     '&:hover': {
                                         background: '#FFFFFF',

@@ -17,7 +17,7 @@ const Footer = () => {
                         <span>"</span>{' '}
                         <span className="user-review">- Joynal </span>
                     </p>
-                    {/* <img src="" alt="" /> */}
+                 
                 </div>
                 <div className="review-details-right">
                     <p className="review-details">
@@ -30,7 +30,7 @@ const Footer = () => {
                         </span>{' '}
                         <span className="user-review">- Rahim </span>
                     </p>
-                    {/* <img src="" alt="" /> */}
+                 
                 </div> 
             </div>
             <div className="review-footer">
@@ -38,7 +38,7 @@ const Footer = () => {
                 <p className="users-no-right">100+ User Blogs</p>
             </div>
             <div className="review-end">
-                {/* <p className='review-end-left'>Blogfam</p> */}
+               
                 <div className='review-end-middle'>
                     <ul>
                         <li>Information</li>
