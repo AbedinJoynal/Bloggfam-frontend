@@ -29,7 +29,7 @@ const BlogDetail = () => {
     };
     const fetchDetails = async () => {
         const res = await axios
-            .get(`https://bloggfam.herokuapp.com/api/blog/${id}`)
+            .get(`https://blogfam.onrender.com/api/blog/${id}`)
             .catch((err) => console.log(err));
         const data = await res.data;
         return data;
@@ -45,7 +45,7 @@ const BlogDetail = () => {
     }, [id]);
     const sendRequest = async () => {
         const res = await axios
-            .put(`https://bloggfam.herokuapp.com/api/blog/update/${id}`, {
+            .put(`https://blogfam.onrender.com/api/blog/update/${id}`, {
                 title: inputs.title,
                 description: inputs.description,
             })

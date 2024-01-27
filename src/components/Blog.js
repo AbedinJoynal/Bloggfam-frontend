@@ -23,7 +23,7 @@ const Blog = ({ title, userName, description, imageURL, isUser, id }) => {
     };
     const deleteRequest = async () => {
         const res = await axios
-            .delete(`https://bloggfam.herokuapp.com/api/blog/${id}`)
+            .delete(`https://blogfam.onrender.com/api/blog/${id}`)
             .catch((err) => console.log(err));
         const data = await res.data;
         return data;

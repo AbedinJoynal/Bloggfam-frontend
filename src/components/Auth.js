@@ -4,48 +4,44 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { authActions } from '../store';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 const Auth = () => {
     const navigate = useNavigate();
-    const dispath = useDispatch();
-    const [inputs, setInputs] = useState({
-        name: '',
-        email: '',
-        password: '',
-    });
+    const dispatch = useDispatch();
+    const [inputs, setInputs] = useState({ name: '', email: '', password: '' });
     const [isSignup, setIsSignup] = useState(false);
+    const [error, setError] = useState('');
+
     const handleChange = (e) => {
-        setInputs((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value,
-        }));
+        setInputs({ ...inputs, [e.target.name]: e.target.value });
     };
+
     const sendRequest = async (type = 'login') => {
-        const res = await axios
-            .post(`https://bloggfam.herokuapp.com/api/user/${type}`, {
-                name: inputs.name,
-                email: inputs.email,
-                password: inputs.password,
-            })
-            .catch((err) => console.log(err));
-        const data = await res.data;
-        console.log(data);
-        return data;
-    };
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(inputs);
-        if (isSignup) {
-            sendRequest('signup')
-                .then((data) => localStorage.setItem('userId', data.user._id))
-                .then(() => dispath(authActions.login()))
-                .then(() => navigate('/blogs'));
-        } else {
-            sendRequest()
-                .then((data) => localStorage.setItem('userId', data.user._id))
-                .then(() => dispath(authActions.login()))
-                .then(() => navigate('/blogs'));
+        try {
+            const res = await axios.post(
+                `https://blogfam.onrender.com/api/user/${type}`,
+                inputs
+            );
+            return res.data;
+        } catch (error) {
+            setError(error.response?.data?.message || 'Something went wrong');
+            toast.error(`${error.response?.data?.message}`);
+            console.log(error);
         }
     };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const data = await sendRequest(isSignup ? 'signup' : 'login');
+        if (data) {
+            localStorage.setItem('userId', data.user._id);
+            localStorage.setItem('userName', data.user.name);
+            dispatch(authActions.login());
+            toast.success('Logged in successfully!'); // Show success message
+            navigate('/blogs');
+        }
+    };
+
     return (
         <div
             style={{
@@ -108,23 +104,25 @@ const Auth = () => {
                             color: 'ghostwhite',
                             padding: '10px 40px',
                             '&:hover': {
-                               boxShadow: '2px 0.5px 4px black',
-                               backgroundColor: '#393636',
+                                boxShadow: '2px 0.5px 4px black',
+                                backgroundColor: '#393636',
                             },
                         }}
                     >
                         Sign In
                     </Button>
                     <Button
-                   
                         onClick={() => setIsSignup(!isSignup)}
-                        sx={{ borderRadius: 2, marginTop: 2, color: '#393636',
-                        '&:hover': {
-                            boxShadow: '2px 0.5px 4px black',
-                            backgroundColor: '#393636',
-                            color: 'ghostwhite',
-                         },
-                    }}
+                        sx={{
+                            borderRadius: 2,
+                            marginTop: 2,
+                            color: '#393636',
+                            '&:hover': {
+                                boxShadow: '2px 0.5px 4px black',
+                                backgroundColor: '#393636',
+                                color: 'ghostwhite',
+                            },
+                        }}
                     >
                         {isSignup ? 'proceed to login' : 'Create an account'}
                     </Button>

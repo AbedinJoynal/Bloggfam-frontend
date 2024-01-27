@@ -8,16 +8,26 @@ import {
     Tabs,
     Tab,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { authActions } from '../store';
 import { useStyles } from './utils';
+import { toast } from 'react-toastify';
+
 const Header = () => {
     const classes = useStyles();
-    const dispath = useDispatch();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [value, setValue] = useState();
     const isLoggedIn = useSelector((state) => state.isLoggedIn);
+    const userName = localStorage.getItem('userName');
+
+    const logoutHandler = () => {
+        dispatch(authActions.logout());
+        toast.success('Logged out successfully!');
+        navigate('/auth');
+    };
+
     return (
         <AppBar
             position="sticky"
@@ -38,7 +48,7 @@ const Header = () => {
                         color: '#FFFFFF',
                         fontWeight: 'bold',
                         fontSize: '24px',
-                        fontfamily: 'Montserrat',
+                        fontFamily: 'Montserrat',
                         letterSpacing: '0.05em',
                         lineHeight: '72px',
                     }}
@@ -52,9 +62,9 @@ const Header = () => {
                         sx={{
                             display: 'flex',
                             flexWrap: 'wrap',
-                justifyContent: 'center',
-                flexShrink: 1,
-                flexBasis: 'auto',
+                            justifyContent: 'center',
+                            flexShrink: 1,
+                            flexBasis: 'auto',
                             gap: '20px',
                         }}
                     >
@@ -70,12 +80,9 @@ const Header = () => {
                                     display: 'flex',
                                     flexWrap: 'wrap',
                                     borderRadius: '5px',
-
                                     alignItems: 'center',
                                     justifyContent: 'center',
-
                                     backgroundColor: '#393636',
-
                                     '&:hover': {
                                         background: '#FFFFFF',
                                         color: '#080B1A',
@@ -90,9 +97,7 @@ const Header = () => {
                                 sx={{
                                     display: 'flex',
                                     flexWrap: 'wrap',
-
                                     borderRadius: '5px',
-
                                     backgroundColor: '#393636',
                                     '&:hover': {
                                         background: '#FFFFFF',
@@ -109,7 +114,6 @@ const Header = () => {
                                     borderRadius: '5px',
                                     display: 'flex',
                                     flexWrap: 'wrap',
-
                                     backgroundColor: '#393636',
                                     '&:hover': {
                                         background: '#FFFFFF',
@@ -123,66 +127,37 @@ const Header = () => {
                     </Box>
                 )}
                 <Box display="flex" marginLeft="auto">
-                    {!isLoggedIn && (
+                    {isLoggedIn ? (
                         <>
-                            <Button
-                                LinkComponent={Link}
-                                to="/auth"
+                            <Typography
+                                variant="subtitle1"
                                 sx={{
-                                    margin: '1',
-                                    borderRadius: 2,
-                                    color: 'ghostwhite',
-                                    marginRight: 1,
-                                    '&:hover': {
-                                        background: '#262626',
-                                        boxShadow: '2px 0.5px 4px black',
-                                        color: 'white',
-                                        borderRadius: '8px',
-                                    },
+                                    alignSelf: 'center',
+                                    marginRight: 2,
+                                    fontWeight: 'bold',
+                                    fontSize: '1.1rem',
                                 }}
                             >
-                                Login
-                            </Button>
+                                {userName}
+                            </Typography>
                             <Button
-                                LinkComponent={Link}
-                                to="/auth"
-                                variant="outlined"
+                                onClick={logoutHandler}
                                 sx={{
                                     margin: '1',
                                     borderRadius: 2,
-                                    marginRight: 1,
+                                    boxShadow: '2px 0.5px 4px black',
+                                    backgroundColor: '#393636',
                                     '&:hover': {
                                         background: '#FFFFFF',
                                         color: '#080B1A',
-                                        borderRadius: '8px',
                                     },
                                 }}
                                 color="inherit"
                             >
-                                Signup
+                                Logout
                             </Button>
                         </>
-                    )}
-                    {isLoggedIn && (
-                        <Button
-                            onClick={() => dispath(authActions.logout())}
-                            LinkComponent={Link}
-                            to="/auth"
-                            sx={{
-                                margin: '1',
-                                borderRadius: 2,
-                                boxShadow: '2px 0.5px 4px black',
-                                backgroundColor: '#393636',
-                                '&:hover': {
-                                    background: '#FFFFFF',
-                                    color: '#080B1A',
-                                },
-                            }}
-                            color="inherit"
-                        >
-                            Logout
-                        </Button>
-                    )}
+                    ) : null}
                 </Box>
             </Toolbar>
         </AppBar>

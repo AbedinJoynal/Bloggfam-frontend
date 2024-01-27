@@ -9,21 +9,25 @@ import './Userblogs.css';
 const Userblogs = () => {
     const [user, setUser] = useState();
     const id = localStorage.getItem('userId');
-    const sendRequest = async () => {
-        const res = await axios
-            .get(`https://bloggfam.herokuapp.com/api/blog/user/${id}`)
-            .catch((err) => console.log(err));
-        const data = await res.data;
-        return data;
-    };
 
     useEffect(() => {
-        sendRequest().then((data) => setUser(data.user));
-    }, []);
-    console.log(user);
+        const sendRequest = async () => {
+            try {
+                const res = await axios.get(
+                    `https://blogfam.onrender.com/api/blog/user/${id}`
+                );
+                const data = res.data;
+                setUser(data.user);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        sendRequest();
+    }, [id]); 
+
     return (
         <div style={{ backgroundColor: 'ghostwhite', marginTop: '-20px' }}>
-            {' '}
             {user &&
                 user.blogs &&
                 user.blogs.map((blog, index) => (
@@ -39,9 +43,8 @@ const Userblogs = () => {
                 ))}
             <div className="review-ends">
                 <p className="review-end-left">
-                    Blogfam.All Rights Reserved 2022
+                    Blogfam. All Rights Reserved 2022
                 </p>
-
                 <div className="review-end-right">
                     <ul>
                         <li>
