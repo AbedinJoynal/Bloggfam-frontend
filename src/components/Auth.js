@@ -48,25 +48,30 @@ const Auth = () => {
                 width: '100%',
                 paddingTop: '20px',
                 height: '38.8rem',
-                backgroundColor: 'ghostwhite',
-                margin: 'auto',
+                marginBottom: '2rem',
+               
+                fontFamily: '"Poppins", sans-serif',
             }}
         >
             <form onSubmit={handleSubmit}>
                 <Box
                     maxWidth={500}
                     display="flex"
-                    flexDirection={'column'}
+                    flexDirection="column"
                     alignItems="center"
-                    justifyContent={'center'}
-                    boxShadow="10px 10px 20px #ccc"
+                    justifyContent="center"
                     padding={3}
                     margin="auto"
                     marginTop={8}
-                    backgroundColor="#ECEEF2"
-                    borderRadius={5}
                 >
-                    <Typography variant="h4" padding={3} textAlign="center">
+                    <Typography
+                        variant="h4"
+                        fontWeight="semi-bold"
+                        padding={3}
+                        textAlign="center"
+                        fontFamily="Poppins"
+                        color="#393636"
+                    >
                         {isSignup ? 'Signup' : 'Login'}
                     </Typography>
 
@@ -77,35 +82,56 @@ const Auth = () => {
                             value={inputs.name}
                             placeholder="Name"
                             margin="normal"
+                            sx={{
+                                borderRadius: 2,
+                                height: 40,
+                                width: '100%',
+                                mb: 2,
+                            }}
                         />
                     )}
                     <TextField
                         name="email"
                         onChange={handleChange}
                         value={inputs.email}
-                        type={'email'}
+                        type="email"
                         placeholder="Your Email"
                         margin="normal"
+                        sx={{
+                            borderRadius: 2,
+                            height: 40,
+                            width: '100%',
+                            mb: 2,
+                        }}
                     />
                     <TextField
                         name="password"
                         onChange={handleChange}
                         value={inputs.password}
-                        type={'password'}
+                        type="password"
                         placeholder="Your Password"
                         margin="normal"
+                        sx={{
+                            borderRadius: 2,
+                            height: 40,
+                            width: '100%',
+                            mb: 3,
+                        }}
                     />
                     <Button
                         type="submit"
+                        variant="contained"
+                        size="large"
                         sx={{
                             borderRadius: 2,
                             marginTop: 3,
-                            backgroundColor: '#393636',
-                            color: 'ghostwhite',
+                            fontFamily: 'Poppins',
+                            color: '#ffffff',
+                            bgcolor: '#393636',
                             padding: '10px 40px',
+                            transition: '.3s ease-in-out',
                             '&:hover': {
-                                boxShadow: '2px 0.5px 4px black',
-                                backgroundColor: '#393636',
+                                bgcolor: '#2b2828',
                             },
                         }}
                     >
@@ -116,15 +142,16 @@ const Auth = () => {
                         sx={{
                             borderRadius: 2,
                             marginTop: 2,
+                            textTransform: 'capitalize',
+                            fontFamily: 'Poppins',
+                            fontSize:   '17.8px',   
                             color: '#393636',
                             '&:hover': {
-                                boxShadow: '2px 0.5px 4px black',
-                                backgroundColor: '#393636',
-                                color: 'ghostwhite',
+                                color: '#a2a4a7',
                             },
                         }}
                     >
-                        {isSignup ? 'proceed to login' : 'Create an account'}
+                        {isSignup ? 'Proceed to Login' : 'Create an Account'}
                     </Button>
                 </Box>
             </form>

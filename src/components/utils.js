@@ -4,3 +4,6 @@ export const useStyles = makeStyles({
         fontFamily: 'Montserrat',
     },
 });
+export function getUserIdFromLocalStorage() {
+    return localStorage.getItem("userId");
+}

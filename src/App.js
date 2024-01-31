@@ -15,12 +15,12 @@ import './App.css';
 function App() {
     const dispatch = useDispatch();
     const isLoggedIn = useSelector((state) => state.isLoggedIn);
+    const userId = useSelector((state) => state.userId);
     useEffect(() => {
-        if (localStorage.getItem('userId')) {
+        if (userId) {
             dispatch(authActions.login());
         }
-    }, [dispatch]);
-    console.log(isLoggedIn);
+    }, [dispatch, userId]);
 
     return (
         <React.Fragment>
