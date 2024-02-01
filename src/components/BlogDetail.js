@@ -3,16 +3,15 @@ import { Box } from '@mui/system';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import './BlogDetail.css';
+
+import Footer from './Footer';
 
 const labelStyles = {
     mb: 1,
     mt: 2,
     fontSize: '24px',
-    fontWeight: 'bold',
+    fontFamily: 'Poppins',
+    fontWeight: '600',
     color: '#393636',
 };
 const BlogDetail = () => {
@@ -69,11 +68,6 @@ const BlogDetail = () => {
             {inputs && (
                 <form onSubmit={handleSubmit}>
                     <Box
-                        backgroundColor="#ECEEF2"
-                        border={3}
-                        borderColor="#393636"
-                        borderRadius={5}
-                        boxShadow="10px 10px 20px #ccc"
                         padding={3}
                         margin={'auto'}
                         marginTop={3}
@@ -83,9 +77,11 @@ const BlogDetail = () => {
                     >
                         <Typography
                             fontWeight={'bold'}
+                            fontFamily={'Poppins'}
                             padding={3}
                             color="#393636"
                             variant="h4"
+                            textDecoration={'none'}
                             textAlign={'center'}
                         >
                             Update Your Blog
@@ -109,14 +105,18 @@ const BlogDetail = () => {
 
                         <Button
                             sx={{
-                                mt: 2,
                                 borderRadius: 2,
+                                padding: '0.8rem',
                                 backgroundColor: '#393636',
                                 color: 'ghostwhite',
+                                fontFamily: 'Poppins',
+                                fontWeight: 'bold',
                                 '&:hover': {
-                                    background: 'black',
-                                    color: '#ffffff',
+                                    background: 'ghostwhite',
+                                    color: '#393636',
+                                    boxShadow: '2px 0.5px 4px black',
                                 },
+                                marginTop: '2.5rem',
                             }}
                             type="submit"
                         >
@@ -125,24 +125,8 @@ const BlogDetail = () => {
                     </Box>
                 </form>
             )}
-            <div className="review-ends-blog">
-                <p className="review-end-left">
-                    Blogfam.All Rights Reserved 2022
-                </p>
-
-                <div className="review-end-right">
-                    <ul>
-                        <li>
-                            <FacebookOutlinedIcon />
-                        </li>
-                        <li>
-                            <TwitterIcon />
-                        </li>
-                        <li>
-                            <InstagramIcon />
-                        </li>
-                    </ul>
-                </div>
+            <div>
+                <Footer />
             </div>
         </div>
     );

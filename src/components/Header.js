@@ -7,20 +7,31 @@ import {
     Button,
     Tabs,
     Tab,
+    useMediaQuery,
+    Drawer,
+    List,
+    ListItem,
+    IconButton,
+    ListItemButton,
 } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { authActions } from '../store';
 import { useStyles } from './utils';
 import { toast } from 'react-toastify';
+import MenuIcon from '@mui/icons-material/Menu';
+import { useTheme } from '@mui/material/styles';
 
 const Header = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [value, setValue] = useState();
+    const [drawerOpen, setDrawerOpen] = useState(false);
     const isLoggedIn = useSelector((state) => state.isLoggedIn);
     const userName = localStorage.getItem('userName');
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const logoutHandler = () => {
         dispatch(authActions.logout());
@@ -29,6 +40,72 @@ const Header = () => {
         localStorage.removeItem('userName');
         navigate('/auth');
     };
+
+    const drawerHandler = () => {
+        setDrawerOpen(!drawerOpen);
+    };
+
+    const navigationLinks = (
+        <>
+            <Tab
+                className={classes.font}
+                LinkComponent={Link}
+                sx={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    fontSize: '16px',
+                    textTransform: 'none',
+                    color: '#393636 !important',
+                    '&:hover': {
+                        color: '#000000 !important',
+                        backgroundColor: '#e1d9d1 !important',
+                        borderRadius: '5px',
+                    },
+                    fontFamily: '"Poppins", sans-serif',
+                }}
+                to="/blogs"
+                label="Home"
+            />
+            <Tab
+                className={classes.font}
+                LinkComponent={Link}
+                sx={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    fontSize: '16px',
+                    textTransform: 'none',
+                    color: '#393636 !important',
+                    '&:hover': {
+                        color: '#000000 !important',
+                        backgroundColor: '#e1d9d1 !important',
+                        borderRadius: '5px',
+                    },
+                    fontFamily: '"Poppins", sans-serif',
+                }}
+                to="/myBlogs"
+                label="Explore"
+            />
+            <Tab
+                className={classes.font}
+                LinkComponent={Link}
+                sx={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    fontSize: '16px',
+                    textTransform: 'none',
+                    color: '#393636 !important',
+                    '&:hover': {
+                        color: '#000000 !important',
+                        backgroundColor: '#e1d9d1 !important',
+                        borderRadius: '5px',
+                    },
+                    fontFamily: '"Poppins", sans-serif',
+                }}
+                to="/blogs/add"
+                label="Post"
+            />
+        </>
+    );
 
     return (
         <AppBar
@@ -45,7 +122,7 @@ const Header = () => {
             <Toolbar>
                 <Typography
                     sx={{
-                        color: '#393636',
+                        color: '#393636 !important',
                         fontWeight: 'bold',
                         fontSize: '24px',
                         fontFamily: '"Poppins", sans-serif',
@@ -60,73 +137,78 @@ const Header = () => {
                         marginLeft="auto"
                         display="flex"
                         alignItems="center"
+                        justifyContent="center"
                         gap="20px"
                     >
-                        <Tabs
-                            textColor="white"
-                            value={value}
-                            onChange={(e, val) => setValue(val)}
-                        >
-                            <Tab
-                                className={classes.font}
-                                LinkComponent={Link}
+                        {isMobile ? (
+                             <>
+                             <IconButton
+                                 edge="start"
+                                 sx={{ color: '#393636 !important' }}
+                                 aria-label="menu"
+                                 onClick={drawerHandler}
+                             >
+                                 <MenuIcon />
+                             </IconButton>
+                             <Drawer
+                                 anchor="right"
+                                 open={drawerOpen}
+                                 onClose={drawerHandler}
+                             >
+                                 <List>
+                                     <ListItem
+                                         sx={{
+                                             fontSize: '1rem',
+                                             fontFamily: '"Poppins", sans-serif',
+                                             color: '#393636',
+                                             padding: '1rem 1.5rem',
+                                             justifyContent: 'center',
+                                         }}
+                                     >
+                                         {userName}
+                                     </ListItem>
+                                     {navigationLinks}
+                                     <ListItemButton
+                                         onClick={logoutHandler}
+                                         sx={{
+                                             marginTop: '1rem',
+                                             padding: '0.5rem 1.5rem',
+                                             fontFamily: '"Poppins", sans-serif',
+                                             borderRadius: 1,
+                                             textAlign: 'center',
+                                             textTransform: 'none',
+                                             '&:hover': {
+                                                 background: '#FFFFFF',
+                                                 color: '#080B1A',
+                                             },
+                                         }}
+                                         color="inherit"
+                                     >
+                                         Logout
+                                     </ListItemButton>
+                                 </List>
+                             </Drawer>
+                         </>
+                        ) : (
+                            <Tabs
+                                value={value}
+                                onChange={(e, val) => setValue(val)}
                                 sx={{
-                                    display: 'flex',
-                                    flexWrap: 'wrap',
-                                    fontSize: '16px',
-                                    textTransform: 'none',
-                                    color: '#080B1A',
-                                    '&:hover': {
-                                        background: '#FFFFFF',
-                                    },
-                                    fontFamily: '"Poppins", sans-serif',
+                                    color: '#393636',
+                                   
                                 }}
-                                to="/blogs"
-                                label="Home"
-                            />{' '}
-                            <Tab
-                                className={classes.font}
-                                LinkComponent={Link}
-                                sx={{
-                                    display: 'flex',
-                                    flexWrap: 'wrap',
-                                    fontSize: '16px',
-                                    textTransform: 'none',
-                                    color: '#080B1A',
-                                    '&:hover': {
-                                        background: '#FFFFFF',
-                                    },
-                                    fontFamily: '"Poppins", sans-serif',
-                                }}
-                                to="/myBlogs"
-                                label="Explore"
-                            />
-                            <Tab
-                                className={classes.font}
-                                LinkComponent={Link}
-                                sx={{
-                                    display: 'flex',
-                                    flexWrap: 'wrap',
-                                    fontSize: '16px',
-                                    textTransform: 'none',
-                                    color: '#080B1A',
-                                    '&:hover': {
-                                        background: '#FFFFFF',
-                                    },
-                                    fontFamily: '"Poppins", sans-serif',
-                                }}
-                                to="/blogs/add"
-                                label="Post"
-                            />
-                        </Tabs>
-                        {isLoggedIn && (
-                            <>
+                            >
+                                {navigationLinks}
+                            </Tabs>
+                        )}
+                        {!isMobile && isLoggedIn && (
+                            <Box display="flex" alignItems="center">
                                 <Typography
                                     variant="subtitle1"
                                     sx={{
                                         alignSelf: 'center',
                                         marginRight: 2,
-                                        color: '#080B1A',
+                                        color: '#393636',
                                         fontWeight: 'bold',
                                         fontSize: '1rem',
                                         padding: '0rem 1rem 0rem 1rem',
@@ -145,7 +227,6 @@ const Header = () => {
                                         borderRadius: 2,
                                         boxShadow: '2px 0.5px 4px black',
                                         textTransform: 'none',
-
                                         backgroundColor: '#393636',
                                         '&:hover': {
                                             background: '#FFFFFF',
@@ -156,7 +237,7 @@ const Header = () => {
                                 >
                                     Logout
                                 </Button>
-                            </>
+                            </Box>
                         )}
                     </Box>
                 )}

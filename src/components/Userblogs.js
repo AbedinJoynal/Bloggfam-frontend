@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Blog from './Blog';
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import './Userblogs.css';
+import Footer from './Footer';
 
 const Userblogs = () => {
     const [user, setUser] = useState();
@@ -41,23 +38,8 @@ const Userblogs = () => {
                         userName={user.name}
                     />
                 ))}
-            <div className="review-ends">
-                <p className="review-end-left">
-                    Blogfam. All Rights Reserved 2022
-                </p>
-                <div className="review-end-right">
-                    <ul>
-                        <li>
-                            <FacebookOutlinedIcon fontSize="large" />
-                        </li>
-                        <li>
-                            <TwitterIcon fontSize="large" />
-                        </li>
-                        <li>
-                            <InstagramIcon fontSize="large" />
-                        </li>
-                    </ul>
-                </div>
+            <div>
+                <Footer />
             </div>
         </div>
     );

@@ -1,11 +1,17 @@
-import { Box, Button, InputLabel, TextField, Typography } from '@mui/material';
+import {
+    Box,
+    Button,
+    Grid,
+    InputLabel,
+    TextField,
+    Typography,
+} from '@mui/material';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStyles } from './utils';
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import Footer from './Footer';
+
 const labelStyles = {
     mb: 1,
     mt: 2,
@@ -29,9 +35,7 @@ const AddBlog = () => {
     };
     const sendRequest = async () => {
         const res = await axios
-            .post(
-                'https://blogfam.onrender.com/api/blog/add'
-            ,{
+            .post('https://blogfam.onrender.com/api/blog/add', {
                 title: inputs.title,
                 description: inputs.description,
                 image: inputs.imageURL,
@@ -52,100 +56,89 @@ const AddBlog = () => {
     return (
         <div style={{ backgroundColor: 'ghostwhite', paddingTop: '20px' }}>
             <form onSubmit={handleSubmit}>
-                <Box
-                    border={3}
-                    borderColor="#393636"
-                    borderRadius={5}
-                    boxShadow="10px 10px 20px #ccc"
-                    padding={3}
-                    margin={'auto'}
-                    marginTop={3}
-                    display="flex"
-                    flexDirection="column"
-                    width="50%"
+                <Grid
+                    container
+                    justifyContent="center"
+                    alignItems="center"
+                    spacing={3}
+                    style={{ maxWidth: '800px', margin: 'auto' }}
                 >
-                    <Typography
-                        className={classes.font}
-                        fontWeight="bold"
-                        padding={3}
-                        color="#393636"
-                        variant="h4"
-                        textAlign={'center'}
-                    >
-                        Post Your Blog
-                    </Typography>
-                    <InputLabel className={classes.font} sx={labelStyles}>
-                        Title
-                    </InputLabel>
-                    <TextField
-                        className={classes.font}
-                        name="title"
-                        onChange={handleChange}
-                        value={inputs.title}
-                        margin="normal"
-                        variant="outlined"
-                    />
-                    <InputLabel className={classes.font} sx={labelStyles}>
-                        Description
-                    </InputLabel>
-                    <TextField
-                        className={classes.font}
-                        name="description"
-                        onChange={handleChange}
-                        value={inputs.description}
-                        margin="normal"
-                        variant="outlined"
-                    />
-                    <InputLabel className={classes.font} sx={labelStyles}>
-                        ImageURL
-                    </InputLabel>
-                    <TextField
-                        className={classes.font}
-                        name="imageURL"
-                        onChange={handleChange}
-                        value={inputs.imageURL}
-                        margin="normal"
-                        variant="outlined"
-                    />
-                    <Button
-                        sx={{
-                            mt: 2,
-                            borderRadius: 2,
-                            backgroundColor: '#393636',
-                            color: 'ghostwhite',
-                            '&:hover': {
-                                background: 'black',
-                                color: '#ffffff',
-                            },
-                        }}
-                        type="submit"
-                    >
-                        UPLOAD POST
-                    </Button>
-                </Box>
+                    <Grid item xs={12}>
+                        <Typography
+                            fontWeight="bold"
+                            fontFamily='"Poppins", sans-serif'
+                            color="#393636"
+                            fontSize="31px"
+                            textAlign="center"
+                            mb={5}
+                        >
+                            {' '}
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        {' '}
+                        <InputLabel sx={{ ...labelStyles, fontSize: 20 }}>
+                            Title
+                        </InputLabel>
+                        <TextField
+                            className={classes.font}
+                            name="title"
+                            onChange={handleChange}
+                            value={inputs.title}
+                            margin="normal"
+                            variant="outlined"
+                            fullWidth
+                        />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <InputLabel sx={{ ...labelStyles, fontSize: 20 }}>
+                            Description
+                        </InputLabel>
+                        <TextField
+                            name="description"
+                            onChange={handleChange}
+                            value={inputs.description}
+                            fullWidth
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <InputLabel sx={{ ...labelStyles, fontSize: 20 }}>
+                            Image URL
+                        </InputLabel>
+                        <TextField
+                            name="imageURL"
+                            onChange={handleChange}
+                            value={inputs.imageURL}
+                            fullWidth
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Button
+                            sx={{
+                                fontFamily: '"Poppins", sans-serif',
+                                borderRadius: 4,
+                                boxShadow: '2px 0.5px 4px rgba(0, 0, 0, 0.1)',
+                                height: 40,
+                                textTransform: 'none',
+                                fontWeight: 'bold',
+                                backgroundColor: '#393636',
+                                color: 'ghostwhite',
+                                '&:hover': {
+                                    backgroundColor: 'ghostwhite#4a4747',
+                                    color: '#4a4747',
+                                    boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
+                                },
+                            }}
+                            type="submit"
+                            fullWidth
+                        >
+                            UPLOAD POST
+                        </Button>
+                    </Grid>
+                </Grid>
             </form>
-            <div className="review-ends-blog">
-                <p className="review-end-left">
-                    Blogfam.All Rights Reserved 2022
-                </p>
-               
-                <div className="review-end-right">
-                    <ul>
-                        <li>
-                            <FacebookOutlinedIcon
-                            
-                            />
-                        </li>
-                        <li>
-                            <TwitterIcon
-                            
-                            />
-                        </li>
-                        <li>
-                            <InstagramIcon />
-                        </li>
-                    </ul>
-                </div>
+            <div>
+                <Footer />
             </div>
         </div>
     );
