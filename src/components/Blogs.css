@@ -1,133 +1,101 @@
-@media only screen and (max-width: 1200px) {
-    .blogs-intro {
-      font-size: 48px;
-      line-height: 56px;
-      top: 200px;
-    }
-    .blogs-desc {
-      font-size: 24px;
-      padding-top: 10px;
-    }
-    .blogs-desc-start {
-      font-size: 16px;
-      padding-top: 20px;
-    }
-  }
-  
-  @media only screen and (max-width: 768px) {
-    body {
-      overflow-x: hidden;
-    }
-    .blogs-intro {
-      font-size: 40px !important;
-      line-height: 44px;
-      top: 150px;
-      width: 100%;
-      text-align: center;
-    }
-    .blogs-section {
-      height: 20rem;
-    }
-    .blogs-top {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 1rem;
-    }
-    .blogs-bottom {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .blogs-desc {
-      font-size: 20px;
-      padding-top: 10px;
-    }
-    .blogs-desc-start {
-      font-size: 14px;
-      padding-top: 10px;
-    }
-  }
-  
-  .blogs-wrapper {
+/* Base styles (for larger screens) remain unchanged */
+.blogs-wrapper {
     display: flex;
     flex-direction: column;
     background-color: ghostwhite;
-  }
-  
-  .blogs-section {
+}
+
+.blogs-section {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    background: url(https://img.freepik.com/free-photo/i-can-handle-multi-tasks-cropped-shot-successful-girl-typing-keyboard-making-notes-while-looking-computer-screen-studying-new-business-graphic-there-is-no-time-rest_176420-8700.jpg?w=900&t=st=1666701659~exp=1666702259~hmac=7673c9e142d84644236f2255fa7dcc8a81ed3e3c067018dad0a5616a5e66b921)
-      no-repeat center fixed;
+    background: url('https://img.freepik.com/free-photo/i-can-handle-multi-tasks-cropped-shot-successful-girl-typing-keyboard-making-notes-while-looking-computer-screen-studying-new-business-graphic-there-is-no-time-rest_176420-8700.jpg?w=900&t=st=1666701659~exp=1666702259~hmac=7673c9e142d84644236f2255fa7dcc8a81ed3e3c067018dad0a5616a5e66b921')
+        no-repeat center fixed;
     background-size: cover;
     width: 100%;
     height: 30rem;
     opacity: 0.8;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  
-  .blogs-intro {
+}
+
+.blogs-intro {
     position: absolute;
     width: 40%;
     height: 150px;
     text-shadow: 1px 1px 0.5px black;
     left: 1.5rem;
     top: 250px;
-    font-family: roboto, arial, helvetica, sans-serif;
-    font-style: normal;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-size: 60px;
     line-height: 72px;
-    color: #393636 !important;
+    color: #393636;
     border-bottom: 2.2px solid black;
-  }
-  
-  .blogs-container {
+}
+
+.blogs-container {
     margin-top: 1.2rem;
-  }
-  
-  .blogs-top {
+}
+
+.blogs-top,
+.blogs-bottom {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  
-  .blogs-bottom {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    font-family: roboto, arial, helvetica, sans-serif;
     text-align: center;
     color: #393636;
-  }
-  
-  .blogs-desc-start {
-    width: 366px;
-    height: 80px;
-    text-shadow: 1px 1px 0.5px black;
-    padding-top: 30px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 43px;
-    text-align: center;
-    color: #393636;
-  }
-  
-  .blogs-desc {
-    width: 360px;
-    height: 70px;
-    text-shadow: 1px 2px 4px black;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 36px;
-    padding-top: 15px;
-    background-color: #393636;
-    text-align: center;
-    border-radius: 15px 1px;
-    color: white;
-  }
+}
+
+/* Adjustments for medium screens (up to 1200px) */
+@media only screen and (max-width: 1200px) {
+    .blogs-intro {
+        font-size: 48px;
+        line-height: 56px;
+        width: 60%; /* Adjust width for better text fitting */
+    }
+    .blogs-desc {
+        font-size: 24px;
+        padding-top: 10px;
+    }
+    .blogs-desc-start {
+        font-size: 16px;
+        padding-top: 20px;
+    }
+}
+
+/* Adjustments for small screens (up to 768px) */
+@media only screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+    .blogs-intro {
+        font-size: 36px; /* Further reduce font size */
+        line-height: 44px;
+        top: 150px;
+        width: 80%; /* Increase width for text fitting */
+        left: 10%; /* Adjust left positioning for centering */
+        text-align: center;
+    }
+    .blogs-section {
+        height: 25rem; /* Adjust for screen size */
+    }
+    .blogs-top {
+        padding: 0 10px; /* Add padding for smaller screens */
+    }
+    .blogs-bottom {
+        text-align: center;
+    }
+    .blogs-desc,
+    .blogs-desc-start {
+        font-size: 18px; /* Adjust font size for smaller screens */
+        padding-top: 5px;
+        width: auto; /* Allow text blocks to fit content */
+    }
+}
+
+/* Ensures padding is added for smaller screens for all elements */
+.blogs-container,
+.blogs-top,
+.blogs-bottom {
+    padding: 0 15px;
+}

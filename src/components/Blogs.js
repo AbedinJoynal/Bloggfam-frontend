@@ -19,13 +19,8 @@ const Blogs = () => {
     return (
         <div className="blogs-wrapper">
             <div className="blogs-top">
-                <div className="blogs-section">
-                </div>
-                    <p className="blogs-intro">Write Your Way To Success</p>
-                <div className="blogs-bottom">
-                    <p className="blogs-desc-start">OUR BLOG</p>
-                    <p className="blogs-desc">Let Us Know</p>
-                </div>
+                <div className="blogs-section"></div>
+                <p className="blogs-intro">Write Your Way To Success</p>
             </div>
 
             <div className="blogs-container">
